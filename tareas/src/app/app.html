@@ -1,0 +1,16 @@
+<h1>Mis tareas</h1> 
+<input #nueva placeholder="Nueva tarea" 
+    (keyup.enter)="agregar(nueva.value); nueva.value=''" /> 
+<ul> 
+    @for (tarea of tareas(); track $index) { 
+        <li>{{ tarea }} <button (click)="eliminar($index)">x</button></li> 
+    } 
+    @empty { 
+        <li>No hay tareas todavia</li> 
+    } 
+</ul> 
+@if (total() > 0) { 
+    <p>Total: {{ total() }} tarea(s)</p> 
+} @else { 
+    <p>Agrega tu primera tarea</p> 
+}
