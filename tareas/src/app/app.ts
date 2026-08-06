@@ -1,23 +1,42 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { Reloj } from '../shared/reloj/reloj'; // Importa el componente Reloj 
+import { CommonModule } from '@angular/common';
 //. => Carpeta Actual
 //.. => Carpeta Padre
 
 @Component({
   selector: 'app-root',
-  imports: [Reloj], // Agrega Reloj a los imports
+  imports: [CommonModule, Reloj], // Agrega Reloj a los imports
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  tareas = signal<string[]>(['Aprender Angular', 'Practicar signals']);
-  total = computed(() => this.tareas().length);
-  agregar(titulo: string) { 
-    const t = titulo.trim(); 
-    if (t) this.tareas.update(xs => [...xs, t]); 
+  guardar($event: string) {
+    console.log('Hora emitida desde el componente hijo:', $event);
+  }
+  private enZona(tz:string):Date{
+    return new Date(
+      new Date().toLocaleString('en-US', { timeZone: tz })
+    );
   }
 
-  eliminar(i: number) { 
-    this.tareas.update(xs => xs.filter((_, idx) => idx !== i)); 
+  horaPeru = this.enZona('America/Lima');
+  horaEspaña = this.enZona('Europe/Madrid');
+  horaJapon = this.enZona('Asia/Tokyo');
+  horaAustralia = this.enZona('Australia/Sydney');
+  horaNuevaYork = this.enZona('America/New_York');
+ 
+  contador = signal(0);
+  doble = computed(() => this.contador() * 2);
+
+  constructor() {
+    effect(() => {
+      console.log('Contador:', this.contador());
+      console.log('Doble:', this.doble());
+    });
+    this.contador.set(5); // Establece el valor inicial del contador a 5
+    this.contador.update(n => n + 1); // Incrementa el contador en 1
   }
+
+  
 }
