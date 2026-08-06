@@ -1,12 +1,13 @@
 import { Component, computed, effect, signal } from '@angular/core';
 import { Reloj } from '../shared/reloj/reloj'; // Importa el componente Reloj 
 import { CommonModule } from '@angular/common';
+import {CamelcasePipe} from '../shared/camelcase-pipe'; // Importa el pipe CamelcasePipe
 //. => Carpeta Actual
 //.. => Carpeta Padre
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, Reloj], // Agrega Reloj a los imports
+  imports: [CommonModule, Reloj, CamelcasePipe], // Agrega Reloj y CamelcasePipe a los imports
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
