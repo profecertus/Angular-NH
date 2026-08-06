@@ -1,10 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
+import { Reloj } from '../shared/reloj/reloj'; // Importa el componente Reloj 
 //. => Carpeta Actual
 //.. => Carpeta Padre
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [Reloj], // Agrega Reloj a los imports
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
