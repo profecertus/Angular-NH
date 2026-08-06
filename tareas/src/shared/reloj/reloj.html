@@ -1,2 +1,10 @@
-<p>Componente Reloj</p>
-<p>{{ hora() }}</p>
+<h1>Componente Reloj</h1>
+
+<mat-form-field appearance="outline">
+    <mat-label>Elige la hora</mat-label>    
+    <input matInput [matTimepicker]="picker" [(ngModel)]="hora">
+    <mat-timepicker-toggle matSuffix [for]="picker"></mat-timepicker-toggle>
+    <mat-timepicker #picker></mat-timepicker>
+</mat-form-field>
+
+<p>Hora elegida: {{ hora() | date:'HH:mm:ss' }}</p>
