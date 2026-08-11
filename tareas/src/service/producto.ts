@@ -1,6 +1,6 @@
 import {Injectable, inject} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable, catchError, map, of} from 'rxjs';
+import {Observable, catchError, throwError} from 'rxjs';
 import {Producto, CrearProducto, Page} from '../models/api.model';
 
 @Injectable({
@@ -24,10 +24,10 @@ export class ProductoService {
     }
 
     return this.http.get<Page<Producto>>(this.baseUrl, { params }).pipe(
-      map(response => response),
       catchError(error => {
         console.error('Error al listar productos:', error);
-        return of({ content: [], totalElements: 0, totalPages: 0, size: 0, number: 0 } as Page<Producto>);
+        // Se propaga el error para que el componente pueda mostrar su estado de error
+        return throwError(() => error);
       })
     );
   }
