@@ -1,0 +1,43 @@
+.productos-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+  padding: 16px;
+}
+ 
+.full-width {
+  width: 100%;
+}
+ 
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+}
+ 
+.table-card {
+  overflow: auto;
+}
+ 
+.error-msg {
+  color: #d32f2f;
+  font-weight: 500;
+}
+ 
+.info-paginacion {
+  margin-top: 12px;
+  color: #666;
+}
+ 
+.paginacion-btns {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+ 
+@media (max-width: 768px) {
+  .productos-container {
+    grid-template-columns: 1fr;
+  }
+}
