@@ -9,5 +9,5 @@
   <p>Valor del contador: {{ contador() }}</p>
   <p>Valor del doble: {{ doble() }}</p>
 </div>
-<p> {{ "20.34" | number:'1.2-2' | currency:'USD '}}</p>
-<p> {{ "biENvenido" | CamelcasePipe }} </p>
+<p> {{ 20.34 | currency:'USD':'symbol':'1.2-2' }}</p>
+<p> {{ "biENvenido" | appCamelcase }} </p>

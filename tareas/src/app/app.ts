@@ -9,7 +9,7 @@ import {CamelcasePipe} from '../shared/camelcase-pipe'; // Importa el pipe Camel
   selector: 'app-root',
   imports: [CommonModule, Reloj, CamelcasePipe], // Agrega Reloj y CamelcasePipe a los imports
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
   guardar($event: string) {
