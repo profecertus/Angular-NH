@@ -13,6 +13,7 @@ import {CamelcasePipe} from '../shared/camelcase-pipe'; // Importa el pipe Camel
 })
 export class App {
   guardar($event: string) {
+    console.log($event);
     console.log('Hora emitida desde el componente hijo:', $event);
   }
   private enZona(tz:string):Date{
