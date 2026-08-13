@@ -1,0 +1,22 @@
+.quien {
+  color: var(--texto-suave);
+  font-size: .85rem;
+}
+
+.subnav {
+  display: flex;
+  gap: .5rem;
+  margin: 1rem 0;
+  border-bottom: 1px solid var(--borde);
+}
+
+.subnav a {
+  padding: .5rem .9rem;
+  color: var(--texto-suave);
+  border-bottom: 2px solid transparent;
+}
+
+.subnav a.on {
+  color: var(--acento);
+  border-bottom-color: var(--acento);
+}

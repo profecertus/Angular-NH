@@ -1,1 +1,18 @@
-<p>checkout works!</p>
+<h2>Checkout</h2>
+<p class="lazy">⚡ Este componente se descargó recién ahora (lazy loading). Míralo en la pestaña Network.</p>
+
+<div class="resumen">
+  <h3>Resumen</h3>
+  @for (i of carrito.items(); track i.producto.id) {
+    <p>{{ i.cantidad }} × {{ i.producto.nombre }}
+      <span>S/ {{ i.producto.precio * i.cantidad | number:'1.2-2' }}</span></p>
+  }
+  <p class="total">Total <span>S/ {{ carrito.total() | number:'1.2-2' }}</span></p>
+</div>
+
+<label>Nombre para la boleta
+  <input [(ngModel)]="cliente" name="cliente" (ngModelChange)="tocado.set(true)"
+         [placeholder]="auth.usuario() ?? 'Tu nombre'">
+</label>
+
+<button class="btn" (click)="confirmar()">Confirmar pedido</button>

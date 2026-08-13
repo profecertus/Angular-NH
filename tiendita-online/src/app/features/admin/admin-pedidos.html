@@ -1,0 +1,18 @@
+@if (store.pedidos().length === 0) {
+  <p>Todavía no hay pedidos. <a routerLink="/catalogo">Compra algo</a> y vuelve.</p>
+} @else {
+  <table class="tabla">
+    <thead><tr><th>Pedido</th><th>Cliente</th><th>Items</th><th>Total</th><th>Fecha</th></tr></thead>
+    <tbody>
+      @for (p of store.pedidos(); track p.id) {
+        <tr>
+          <td><a [routerLink]="['/gracias', p.id]">{{ p.id }}</a></td>
+          <td>{{ p.cliente }}</td>
+          <td>{{ p.items.length }}</td>
+          <td>S/ {{ p.total | number:'1.2-2' }}</td>
+          <td>{{ p.fecha | date:'short' }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

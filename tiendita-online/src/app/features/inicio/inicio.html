@@ -1,1 +1,20 @@
-<p>inicio works!</p>
+<section class="hero">
+  <h1>Tiendita <span>Online</span> 🛍️</h1>
+  <p>
+    Demo de la Sesión 16: routing, parámetros, guards, lazy loading
+    y estado compartido con signals.
+  </p>
+
+  <div class="acciones">
+    <!-- navegación declarativa: routerLink (nunca href) -->
+    <a routerLink="/catalogo" class="btn">Ver catálogo</a>
+
+    <!-- navegación programática: router.navigate() con query params -->
+    <button class="btn ghost" (click)="verOfertas()">Ver solo tazas 💸</button>
+  </div>
+
+  <p class="dato">
+    {{ productos.productos().length }} productos en
+    {{ productos.categorias().length }} categorías.
+  </p>
+</section>

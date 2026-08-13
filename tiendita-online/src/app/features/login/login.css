@@ -1,0 +1,43 @@
+.login {
+  max-width: 340px;
+  margin: 2rem auto;
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: .75rem;
+  font-size: .85rem;
+  color: var(--texto-suave);
+}
+
+input {
+  width: 100%;
+  margin-top: .25rem;
+  padding: .5rem;
+  border-radius: 8px;
+  border: 1px solid var(--borde);
+  background: #10151f;
+  color: var(--texto);
+}
+
+.tip {
+  font-size: .8rem;
+  color: var(--texto-suave);
+}
+
+.error {
+  color: #f08080;
+  font-size: .85rem;
+}
+
+.aviso {
+  background: #2b3a4a;
+  border: 1px solid #47698c;
+  padding: .5rem .7rem;
+  border-radius: 8px;
+  font-size: .8rem;
+}

@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="login">
+  <h2>Iniciar sesión</h2>
+  <p class="tip">Cualquier usuario y clave funcionan (es una demo).</p>
+
+  @if (returnUrl()) {
+    <p class="aviso">Un guard te trajo acá. Después del login vuelves a <code>{{ returnUrl() }}</code>.</p>
+  }
+
+  <label>Usuario
+    <input [(ngModel)]="usuario" name="usuario" placeholder="edwin">
+  </label>
+  <label>Clave
+    <input [(ngModel)]="clave" name="clave" type="password" placeholder="••••">
+  </label>
+
+  @if (error()) { <p class="error">Completa usuario y clave.</p> }
+
+  <button class="btn" (click)="entrar()">Entrar</button>
+</div>

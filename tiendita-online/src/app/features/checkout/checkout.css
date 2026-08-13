@@ -1,0 +1,47 @@
+.lazy {
+  background: #2b3a4a;
+  border: 1px solid #47698c;
+  padding: .6rem .9rem;
+  border-radius: 8px;
+  font-size: .85rem;
+}
+
+.resumen {
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  max-width: 420px;
+}
+
+.resumen p {
+  display: flex;
+  justify-content: space-between;
+  margin: .25rem 0;
+}
+
+.total {
+  border-top: 1px solid var(--borde);
+  padding-top: .5rem;
+  font-weight: 700;
+  color: var(--acento);
+}
+
+label {
+  display: block;
+  max-width: 420px;
+  margin-bottom: 1rem;
+  font-size: .85rem;
+  color: var(--texto-suave);
+}
+
+input {
+  width: 100%;
+  margin-top: .25rem;
+  padding: .5rem;
+  border-radius: 8px;
+  border: 1px solid var(--borde);
+  background: #10151f;
+  color: var(--texto);
+}

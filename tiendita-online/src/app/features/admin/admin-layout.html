@@ -1,0 +1,11 @@
+<h2>Panel de administración</h2>
+<p class="quien">Sesión de <strong>{{ auth.usuario() }}</strong> — zona protegida por authGuard.</p>
+
+<!-- sub-navegación de rutas hijas (rutas relativas, sin la barra inicial) -->
+<nav class="subnav">
+  <a routerLink="productos" routerLinkActive="on">Productos</a>
+  <a routerLink="pedidos" routerLinkActive="on">Pedidos</a>
+</nav>
+
+<!-- outlet anidado: /admin/productos y /admin/pedidos se pintan acá -->
+<router-outlet />

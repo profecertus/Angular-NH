@@ -1,1 +1,41 @@
-<p>carrito works!</p>
+<h2>Tu carrito</h2>
+
+@if (store.vacio()) {
+  <p>Está vacío. <a routerLink="/catalogo">Ir al catálogo</a></p>
+} @else {
+  <table class="tabla">
+    <thead>
+      <tr><th>Producto</th><th>Precio</th><th>Cant.</th><th>Subtotal</th><th></th></tr>
+    </thead>
+    <tbody>
+      @for (i of store.items(); track i.producto.id) {
+        <tr>
+          <td>
+            {{ i.producto.emoji }}
+            <a [routerLink]="['/catalogo', i.producto.id]">{{ i.producto.nombre }}</a>
+          </td>
+          <td>S/ {{ i.producto.precio | number:'1.2-2' }}</td>
+          <td>
+            <button class="mini" (click)="store.cambiarCantidad(i.producto.id, i.cantidad - 1)">−</button>
+            {{ i.cantidad }}
+            <button class="mini" (click)="store.cambiarCantidad(i.producto.id, i.cantidad + 1)">+</button>
+          </td>
+          <td>S/ {{ i.producto.precio * i.cantidad | number:'1.2-2' }}</td>
+          <td><button class="mini danger" (click)="store.quitar(i.producto.id)">✕</button></td>
+        </tr>
+      }
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3"><strong>Total ({{ store.cantidad() }} u.)</strong></td>
+        <td colspan="2"><strong class="precio">S/ {{ store.total() | number:'1.2-2' }}</strong></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="acciones">
+    <button class="btn ghost" (click)="store.vaciar()">Vaciar carrito</button>
+    <!-- /checkout está protegido por authGuard + carritoNoVacioGuard -->
+    <button class="btn" (click)="irAlCheckout()">Ir a pagar →</button>
+  </div>
+}

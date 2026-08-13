@@ -1,0 +1,19 @@
+<p class="tip">Cambia un precio y vuelve al catálogo: el store es el mismo, la vista se actualiza sola.</p>
+
+<table class="tabla">
+  <thead><tr><th>#</th><th>Producto</th><th>Precio</th><th>Stock</th><th></th></tr></thead>
+  <tbody>
+    @for (p of productos.productos(); track p.id) {
+      <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.emoji }} {{ p.nombre }}</td>
+        <td>S/ {{ p.precio | number:'1.2-2' }}</td>
+        <td>{{ p.stock }}</td>
+        <td>
+          <button class="mini" (click)="subir(p.id, p.precio)">+10%</button>
+          <button class="mini" (click)="bajar(p.id, p.precio)">−10%</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

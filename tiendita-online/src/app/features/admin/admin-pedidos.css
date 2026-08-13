@@ -8,7 +8,7 @@
 }
 
 th, td {
-  padding: .6rem .8rem;
+  padding: .5rem .8rem;
   text-align: left;
   border-bottom: 1px solid var(--borde);
 }
@@ -17,13 +17,4 @@ th {
   font-size: .75rem;
   text-transform: uppercase;
   color: var(--texto-suave);
-}
-
-.precio { color: var(--acento); }
-
-.acciones {
-  display: flex;
-  gap: .5rem;
-  justify-content: flex-end;
-  margin-top: 1rem;
 }
