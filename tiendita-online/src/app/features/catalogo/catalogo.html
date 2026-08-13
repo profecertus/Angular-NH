@@ -1,1 +1,46 @@
-<p>catalogo works!</p>
+<h2>Catálogo</h2>
+
+@if (aviso() === 'carrito-vacio') {
+  <p class="aviso">🛑 El checkout está bloqueado: primero agrega algo al carrito.</p>
+}
+
+<!-- Los filtros NO son estado del componente: viven en la URL (query params).
+     Así el filtro es compartible, sobrevive al F5 y funciona el botón atrás. -->
+<div class="filtros">
+  <button class="chip" [class.on]="!categoria()" (click)="filtrar(null)">todas</button>
+  @for (c of productos.categorias(); track c) {
+    <button class="chip" [class.on]="categoria() === c" (click)="filtrar(c)">{{ c }}</button>
+  }
+
+  <span class="sep"></span>
+
+  <button class="chip" [class.on]="orden() === 'precio'" (click)="ordenar('precio')">
+    ordenar por precio
+  </button>
+  <button class="chip" [class.on]="orden() === 'nombre'" (click)="ordenar('nombre')">
+    ordenar por nombre
+  </button>
+</div>
+
+<p class="url">URL actual: <code>{{ urlActual() }}</code></p>
+
+<div class="grid">
+  @for (p of visibles(); track p.id) {
+    <article class="card">
+      <div class="emoji">{{ p.emoji }}</div>
+
+      <!-- parámetro de ruta: /catalogo/3 -->
+      <a [routerLink]="['/catalogo', p.id]" class="nombre">{{ p.nombre }}</a>
+
+      <p class="precio">S/ {{ p.precio | number:'1.2-2' }}</p>
+
+      @if (p.stock > 0) {
+        <button class="btn small" (click)="agregar(p)">Agregar</button>
+      } @else {
+        <button class="btn small" disabled>Agotado</button>
+      }
+    </article>
+  } @empty {
+    <p>No hay productos con ese filtro.</p>
+  }
+</div>

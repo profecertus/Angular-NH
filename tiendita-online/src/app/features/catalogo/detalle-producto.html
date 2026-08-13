@@ -1,0 +1,28 @@
+@if (producto(); as p) {
+  <a routerLink="/catalogo" class="volver">← Volver al catálogo</a>
+
+  <article class="detalle">
+    <div class="emoji">{{ p.emoji }}</div>
+    <div>
+      <h2>{{ p.nombre }}</h2>
+      <p class="cat">{{ p.categoria }}</p>
+      <p>{{ p.descripcion }}</p>
+      <p class="precio">S/ {{ p.precio | number:'1.2-2' }}</p>
+      <p class="stock">Stock: {{ p.stock }}</p>
+
+      <div class="acciones">
+        <button class="btn" [disabled]="p.stock === 0" (click)="agregar()">
+          Agregar al carrito
+        </button>
+        <button class="btn ghost" [disabled]="p.stock === 0" (click)="comprarYa()">
+          Comprar ya
+        </button>
+      </div>
+    </div>
+  </article>
+} @else {
+  <!-- id válido pero producto inexistente: /catalogo/999 -->
+  <h2>Producto no encontrado 🤷</h2>
+  <p>No existe un producto con id <code>{{ id() }}</code>.</p>
+  <a routerLink="/catalogo" class="btn">Volver al catálogo</a>
+}

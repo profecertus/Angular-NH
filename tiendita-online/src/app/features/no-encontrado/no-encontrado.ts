@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-no-encontrado',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './no-encontrado.html',
   styleUrl: './no-encontrado.css',
 })
-export class NoEncontrado {}
+export class NoEncontrado {
+  url = inject(Router).url;
+}

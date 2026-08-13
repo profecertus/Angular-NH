@@ -1,0 +1,50 @@
+.filtros {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.sep { flex: 1 1 1rem; }
+
+.url {
+  font-size: .8rem;
+  color: var(--texto-suave);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.emoji { font-size: 2.5rem; }
+
+.nombre {
+  display: block;
+  font-weight: 600;
+  margin: .5rem 0;
+  color: var(--texto);
+}
+
+.precio {
+  color: var(--acento);
+  font-weight: 700;
+  margin: .25rem 0 .75rem;
+}
+
+.aviso {
+  background: #4a2b2b;
+  border: 1px solid #a05252;
+  padding: .6rem .9rem;
+  border-radius: 8px;
+}
