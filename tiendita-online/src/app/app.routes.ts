@@ -4,7 +4,6 @@ import { Catalogo } from './features/catalogo/catalogo';
 import { DetalleProducto } from './features/catalogo/detalle-producto';
 import { Carrito } from './features/carrito/carrito';
 import { Login } from './features/login/login';
-import { Admin } from './features/admin/admin';
 
 export const routes: Routes = [
     {path:'', component:Inicio, title: 'Tiendita-Inicio', pathMatch:'full'},
@@ -14,6 +13,7 @@ export const routes: Routes = [
     {path:'login', component:Login, title:'Tiendita-Login'},
     {
         path:'admin',
-        component: Admin
+        loadChildren: () =>
+            import('./features/admin/admin.routes').then(m => m.ADMIN_ROUTES),
     }
 ];

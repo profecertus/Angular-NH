@@ -10,5 +10,5 @@ import { CarritoStore } from '../../core/store/carrito.store';
   styleUrl: './admin-pedidos.css',
 })
 export class AdminPedidos {
-  store = inject(CarritoStore);
+  store = inject(CarritoStore);  
 }
