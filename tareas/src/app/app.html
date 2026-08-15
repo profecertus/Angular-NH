@@ -1,1 +1,28 @@
-<app-productos>
+<mat-toolbar color="primary" class="barra-superior">
+    <mat-icon class="logo">dashboard</mat-icon>
+    <span classs="titulo">Gestión</span>
+</mat-toolbar>
+
+<nav mat-tab-nav-bar [tabPanel]="panel" class="menu">
+    @for (seccion of secciones; track seccion.ruta){
+        <a 
+            mat-tab-link
+            [routerLink]="seccion.ruta"
+            routerLinkActive
+            #rla="routerLinkActive"
+            [active]="rla.isActive"
+            [attr.aria-current]="rla.isActive?'page':null"
+        >
+            <mat-icon class="icon-tab">
+                {{ seccion.icono}}
+            </mat-icon>
+            {{ seccion.etiqueta}}
+        </a>
+    }
+</nav>
+
+<mat-tab-nav-panel #panel>
+    <main class="contenido">
+        <router-outlet/>
+    </main>
+</mat-tab-nav-panel>

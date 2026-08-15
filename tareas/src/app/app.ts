@@ -1,45 +1,28 @@
 import { Component, computed, effect, signal } from '@angular/core';
-import { Reloj } from '../shared/reloj/reloj'; // Importa el componente Reloj 
 import { CommonModule } from '@angular/common';
-import {CamelcasePipe} from '../shared/camelcase-pipe';
-import { Productos } from "../shared/productos/productos"; // Importa el pipe CamelcasePipe
-//. => Carpeta Actual
-//.. => Carpeta Padre
+import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router"; // Importa el pipe CamelcasePipe
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, Reloj, CamelcasePipe, Productos], // Agrega Reloj y CamelcasePipe a los imports
+  imports: [
+    CommonModule, 
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    MatToolbarModule,
+    MatTabsModule,
+    MatIconModule
+  ], 
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
 export class App {
-  guardar($event: string) {
-    console.log($event);
-    console.log('Hora emitida desde el componente hijo:', $event);
-  }
-  private enZona(tz:string):Date{
-    return new Date(
-      new Date().toLocaleString('en-US', { timeZone: tz })
-    );
-  }
-
-  horaPeru = this.enZona('America/Lima');
-  horaEspaña = this.enZona('Europe/Madrid');
-  horaJapon = this.enZona('Asia/Tokyo');
-  horaAustralia = this.enZona('Australia/Sydney');
-  horaNuevaYork = this.enZona('America/New_York');
- 
-  contador = signal(0);
-  doble = computed(() => this.contador() * 2);
-
-  constructor() {
-    effect(() => {
-      console.log('Contador:', this.contador());
-      console.log('Doble:', this.doble());
-    });
-    this.contador.set(5); // Establece el valor inicial del contador a 5
-    this.contador.update(n => n + 1); // Incrementa el contador en 1
-  }
-
-  
+  secciones = [
+    { ruta: '/productos', etiqueta: 'Productos', icono:'inventory_2'},
+    { ruta:'/clientes', etiqueta:'Clientes', icono:'people'},
+  ];
 }

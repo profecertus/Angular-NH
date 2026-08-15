@@ -1,0 +1,22 @@
+.barra-superior{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.barra-superior .titulo {
+    font-weight: 600;
+}
+
+.menu {
+    margin-bottom: 1rem;
+}
+
+.icono-tab{
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.contenido{
+    padding: 0 1rem 2rem;
+}
