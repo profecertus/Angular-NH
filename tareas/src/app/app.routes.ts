@@ -1,11 +1,16 @@
 import { Routes } from '@angular/router';
-import { Productos } from '../shared/productos/productos';
-import { Clientes } from '../shared/clientes/clientes';
-
 
 export const routes: Routes = [
     {path:'', redirectTo:'productos', pathMatch:'full'},
-    {path:'productos', component:Productos, title:'Productos'},
-    {path: 'clientes', component:Clientes, title:'Clientes'},
+    {
+        path:'productos', 
+        title:'Productos',
+        loadComponent: () => import('../shared/productos/productos').then((m) => m.Productos)
+    },
+    {
+        path: 'clientes', 
+        title:'Clientes',
+        loadComponent: () => import('../shared/clientes/clientes').then((m) => m.Clientes)
+    },
     {path: '**', redirectTo:'productos'}
 ];
